@@ -1,0 +1,28 @@
+{
+    "name": "mckaysoftware/httpstatus",
+    "type": "library",
+    "description": "Easy HTTP statuses.",
+    "keywords": ["http", "status"],
+    "license": "Proprietary",
+    "authors": [
+    	{
+    		"name": "Félix Saparelli",
+    		"email": "felix.saparelli@mckay.co.nz",
+    		"homepage": "https://passcod.name"
+    	},
+        {
+    		"name": "McKay Software",
+    		"email": "software@mckay.co.nz"
+    	}
+    ],
+    "require": {
+        "php": ">=5.3.0"
+    },
+    "require-dev": {
+    },
+    "autoload": {
+    	"psr-4": {
+    		"Mckay\\HttpStatus\\": "src"
+    	}
+    }
+}

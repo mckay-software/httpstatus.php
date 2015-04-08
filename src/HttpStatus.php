@@ -56,7 +56,7 @@ class HttpStatus {
                 $text = str_replace('Request Uri', 'Request-Uri', $text);
                 $text = str_replace('Uri', 'URI', $text);
                 return $text;
-            }, array_flip((new ReflectionClass('HttpStatus'))->getConstants()));
+            }, array_flip((new \ReflectionClass('HttpStatus'))->getConstants()));
         }
 
         if ($code === null) {

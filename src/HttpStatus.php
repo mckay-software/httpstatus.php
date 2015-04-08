@@ -1,5 +1,7 @@
 <?
 
+namespace McKay;
+
 class HttpStatus {
     const OK = 200;
     const CREATED = 201;

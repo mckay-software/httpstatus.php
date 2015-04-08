@@ -1,5 +1,5 @@
 {
-    "name": "mckaysoftware/httpstatus",
+    "name": "mckay/httpstatus",
     "type": "library",
     "description": "Easy HTTP statuses.",
     "keywords": ["http", "status"],
@@ -22,7 +22,7 @@
     },
     "autoload": {
     	"psr-4": {
-    		"Mckay\\HttpStatus\\": "src"
+    		"McKay\\": "src"
     	}
     }
 }

@@ -3,7 +3,7 @@
     "type": "library",
     "description": "Easy HTTP statuses.",
     "keywords": ["http", "status"],
-    "license": "Proprietary",
+    "license": "MIT",
     "authors": [
     	{
     		"name": "Félix Saparelli",

@@ -1,4 +1,4 @@
-<?
+<?php
 
 namespace McKay;
 
@@ -39,12 +39,27 @@ class HttpStatus {
     const GATEWAY_TIMEOUT = 504;
     const HTTP_VERSION_NOT_SUPPORTED = 505;
 
-    public static function set($code) {
-        http_response_code($code);
+	public static function set($code) {
+        if (function_exists('http_response_code')) {
+            http_response_code($code);
+		} else {
+            $GLOBALS['http_response_code'] = $code;
+            $protocol = empty($_SERVER['SERVER_PROTOCOL']) ? 'HTTP/1.1' : $_SERVER['SERVER_PROTOCOL'];
+            $text = self::text($code);
+			header("$protocol $code $text");
+        }
     }
 
     public static function get() {
-        return http_response_code();
+        if (function_exists('http_response_code')) {
+            return http_response_code();
+		} else {
+			if (empty($GLOBALS['http_response_code'])) {
+                $GLOBALS['http_response_code'] = 200;
+            }
+
+            return $GLOBALS['http_response_code'];
+        }
     }
 
     public static function text($code = null) {

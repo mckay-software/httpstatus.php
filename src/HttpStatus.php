@@ -39,22 +39,22 @@ class HttpStatus {
     const GATEWAY_TIMEOUT = 504;
     const HTTP_VERSION_NOT_SUPPORTED = 505;
 
-	public static function set($code) {
+    public static function set($code) {
         if (function_exists('http_response_code')) {
             http_response_code($code);
-		} else {
+        } else {
             $GLOBALS['http_response_code'] = $code;
             $protocol = empty($_SERVER['SERVER_PROTOCOL']) ? 'HTTP/1.1' : $_SERVER['SERVER_PROTOCOL'];
             $text = self::text($code);
-			header("$protocol $code $text");
+            header("$protocol $code $text");
         }
     }
 
     public static function get() {
         if (function_exists('http_response_code')) {
             return http_response_code();
-		} else {
-			if (empty($GLOBALS['http_response_code'])) {
+        } else {
+            if (empty($GLOBALS['http_response_code'])) {
                 $GLOBALS['http_response_code'] = 200;
             }
 

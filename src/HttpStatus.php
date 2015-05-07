@@ -65,13 +65,14 @@ class HttpStatus {
     public static function text($code = null) {
         static $texts = null;
         if ($texts === null) {
-            $texts = array_map(function($text) {
+			$reflclass = new \ReflectionClass('McKay\\HttpStatus');
+			$texts = array_map(function($text) {
                 $text = ucwords(strtolower(str_replace('_', ' ', $text)));
                 $text = str_replace('Non Authoritative', 'Non-Authoritative', $text);
                 $text = str_replace('Request Uri', 'Request-Uri', $text);
                 $text = str_replace('Uri', 'URI', $text);
                 return $text;
-            }, array_flip((new \ReflectionClass('McKay\\HttpStatus'))->getConstants()));
+            }, array_flip($reflclass->getConstants()));
         }
 
         if ($code === null) {
